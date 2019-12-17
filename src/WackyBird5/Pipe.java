@@ -64,18 +64,9 @@ public class Pipe extends Sprite{
 		
 		for(int i = 0; i < pipes.size(); i++) {
 			Rectangle rect = pipes.get(i);
-//			g.fillRect(rect.x, rect.y, rect.width, rect.height);
-//			g.drawImage(pipeImage, rect.x, rect.y, rect.width, rect.height, null);
-//			g.drawImage(pipeImage, rect.x, rect.y, Color.BLACK, null);
-//			g.fill3DRect(rect.x, rect.y, rect.width, rect.height, false);
-//		    g.drawRoundRect(rect.x, rect.y, rect.width, rect.height, 3, 4);
 			g.setColor(Color.GREEN);
 		    g.draw3DRect(rect.x, rect.y, rect.width, rect.height, true);
 		    g.fill3DRect(rect.x, rect.y, rect.width, rect.height, true);
-//		    g.setColor(Color.RED);
-//		    g.draw3DRect(rect.x-10, rect.y+rect.height+2, rect.width, rect.height/4, true);
-//		    g.fill3DRect(rect.x-10, rect.y+rect.height+2, rect.width, rect.height/4, true);
-			
 		}
 	
 	}

@@ -19,11 +19,11 @@ public class Menu{
         g.setFont(new Font("Helvetica", Font.BOLD, 20));
         
         if(GameCore.state == GameCore.STATE.MENU) {
-        	g.drawString("Press S to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
+        	g.drawString("Press S to start or Q to quit!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
         }
         else if(GameCore.state == GameCore.STATE.OVER) {
         	g.drawString("GAME OVER", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
-        	g.drawString("Press R to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 - 30);
+        	g.drawString("Press R to restart or Q to quit!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 - 30);
         }
     }
 }

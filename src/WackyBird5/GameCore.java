@@ -80,7 +80,7 @@ public class GameCore extends Canvas implements Runnable {
 		GameCore game = new GameCore();
 		jFrame.add(game);
 		
-		//jFrame.setResizable(false);
+		jFrame.setResizable(false);
 		jFrame.pack();
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setTitle("Wacky Bird");
@@ -163,9 +163,7 @@ public class GameCore extends Canvas implements Runnable {
 				eagle.update();
 			}
 		}
-//		else if(state == STATE.MENU){
-//			//do somethin
-//		}
+
 
 	}
 
@@ -209,6 +207,9 @@ public class GameCore extends Canvas implements Runnable {
 	public void paint(Graphics g) {}
 
 	public static void newGame(){
+		score = 0;
+		backdrop = new BackDrop(1);
+		pipe.changePipeSpeed(6);
 		pipe = new Pipe(60);
 		bird = new Bird(20,GameCore.HEIGHT/2,pipe.pipes);
 		playerScore = new Score();

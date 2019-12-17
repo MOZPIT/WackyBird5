@@ -41,13 +41,6 @@ public class BackDrop {
 		
 //		dx = Bird.getBirdX();
 		dx = 0;
-//		if(level == 1) {
-//			levelBackground = level1BackGround;
-//		}else if(level == 2) {
-//			levelBackground = level2BackGround;
-//		}else if(level == 3) {
-//			levelBackground = level3BackGround;
-//		}
 	}
 	
 	
@@ -55,7 +48,6 @@ public class BackDrop {
 	public void render(Graphics g) {
 		if(backdrop != null) {
 				for(int i = 0; i < 7; i++) {
-//		        	g.drawImage(backdrop, ((int) ((dx + (GameCore.WIDTH *.01)) - Camera.x)), -100, null);
 					g.drawImage(backdrop, ((int) ((dx + (GameCore.WIDTH * .01)) - Camera.x)), -100, null);
 				}
 		}else {
@@ -72,10 +64,6 @@ public class BackDrop {
 		
 //		trees.draw(g);
 	}	
-//	public void render(Graphics g) {
-//		level1BackGround.draw(g);
-//		trees.draw(g);
-//	 } 
 	
 	public static int getLevel() {
 		return level;
