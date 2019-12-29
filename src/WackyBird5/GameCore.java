@@ -1,3 +1,4 @@
+
 package WackyBird5;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -80,7 +81,7 @@ public class GameCore extends Canvas implements Runnable {
 		GameCore game = new GameCore();
 		jFrame.add(game);
 		
-		//jFrame.setResizable(false);
+		jFrame.setResizable(false);
 		jFrame.pack();
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setTitle("Wacky Bird");
@@ -122,7 +123,6 @@ public class GameCore extends Canvas implements Runnable {
 				}
 				fps++;
 				delta--;
-				
 			}
 			
 			if(System.currentTimeMillis() - timer >= 1000) {
@@ -209,12 +209,14 @@ public class GameCore extends Canvas implements Runnable {
 	public void paint(Graphics g) {}
 
 	public static void newGame(){
+		score = 0;
+		backdrop = new BackDrop(1);
 		pipe = new Pipe(60);
 		bird = new Bird(20,GameCore.HEIGHT/2,pipe.pipes);
 		playerScore = new Score();
 		gameFloor = new Floor();
 		trees = new Trees();
-		snowFlake = new Snow(3, 1, 3);
+		snowFlake = new Snow(6, 2, 6);
 		try {
 			eagle = new Eagle(50, 10, 20, 0);
 		} catch (IOException e) {

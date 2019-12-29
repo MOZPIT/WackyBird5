@@ -255,7 +255,7 @@ public class Eagle extends Sprite
 			catch (InterruptedException ex) {}
 		}
 				
-		g.drawLine(Bird.getBirdX(), Bird.getBirdY(), (int)(x + r * cosA), (int)(y + r * sinA));
+//		g.drawLine(Bird.getBirdX(), Bird.getBirdY(), (int)(x + r * cosA), (int)(y + r * sinA));
 	}
 	
 }

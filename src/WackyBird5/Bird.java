@@ -70,6 +70,7 @@ public class Bird extends Rectangle{
 			if(this.intersects(pipes.get(i))){
 					gameOver = true;
 					GameCore.state = GameCore.STATE.OVER;
+					Sound.birdDownMusic();
 					break;
 			}
 		}                   

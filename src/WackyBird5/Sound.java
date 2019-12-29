@@ -54,4 +54,22 @@ public class Sound {
 		}
 	}
 	
+	public static void birdDownMusic() {
+		try {
+			File birdDownMusicPath = new File("src/WackyBird5/sounds/explosion.wav");
+			if(birdDownMusicPath.exists()) {
+				AudioInputStream birdDownInput = AudioSystem.getAudioInputStream(birdDownMusicPath);
+				Clip birdDownClip = AudioSystem.getClip();
+				birdDownClip.open(birdDownInput);
+				birdDownClip.start();
+			}else {
+				System.out.println("Can't play audio file");
+			}
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
 }

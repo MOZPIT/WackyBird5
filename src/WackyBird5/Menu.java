@@ -5,7 +5,9 @@ import java.io.IOException;
 public class Menu{
 
     public void render(Graphics g) throws IOException {
-        Font font0 = new Font("arial", Font.BOLD, 50);
+        Font font0 = new Font("arial", Font.BOLD, 55);
+        Font font1 = new Font("arial", Font.BOLD, 45);
+        Font font2 = new Font("arial", Font.BOLD, 21);
         g.setFont(font0);
 
         g.setColor(Color.GRAY);
@@ -20,10 +22,16 @@ public class Menu{
         
         if(GameCore.state == GameCore.STATE.MENU) {
         	g.drawString("Press S to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
+        	g.drawString("   Q to quit!    ", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 30);
         }
         else if(GameCore.state == GameCore.STATE.OVER) {
-        	g.drawString("GAME OVER", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
-        	g.drawString("Press R to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 - 30);
+        	g.setColor(Color.red);
+        	g.setFont(font1);
+        	g.drawString("GAME OVER", GameCore.WIDTH / 2 - 150, GameCore.HEIGHT / 2);
+        	g.setFont(font2);
+        	g.setColor(Color.white);
+        	g.drawString("Press R to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 30);
+        	g.drawString("   Q to quit!    ", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 60);
         }
     }
 }

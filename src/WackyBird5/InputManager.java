@@ -27,7 +27,7 @@ public class InputManager implements KeyListener
 		if(GameCore.state == GameCore.STATE.GAME) {
 			if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 				Bird.keyPressed = true;
-				Camera.moveRight(2);
+				Camera.moveRight(1);
 			}
 		}
 	}
@@ -55,6 +55,10 @@ public class InputManager implements KeyListener
 			if(e.getKeyChar() == _R) {
 				GameCore.state = GameCore.STATE.GAME;
 				GameCore.newGame();
+			}
+			
+			if(e.getKeyChar() == _Q) {
+				System.exit(1);
 			}
 		}
 	}
