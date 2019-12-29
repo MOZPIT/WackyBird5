@@ -21,6 +21,7 @@ public class Menu{
         g.setFont(new Font("Helvetica", Font.BOLD, 20));
         
         if(GameCore.state == GameCore.STATE.MENU) {
+<<<<<<< HEAD
         	g.drawString("Press S to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
         	g.drawString("   Q to quit!    ", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 30);
         }
@@ -32,6 +33,13 @@ public class Menu{
         	g.setColor(Color.white);
         	g.drawString("Press R to start!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 30);
         	g.drawString("   Q to quit!    ", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 + 60);
+=======
+        	g.drawString("Press S to start or Q to quit!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
+        }
+        else if(GameCore.state == GameCore.STATE.OVER) {
+        	g.drawString("GAME OVER", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2);
+        	g.drawString("Press R to restart or Q to quit!", GameCore.WIDTH / 2 - 80, GameCore.HEIGHT / 2 - 30);
+>>>>>>> a89895ae565c7d595538f41e4d8c241787586612
         }
     }
 }

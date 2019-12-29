@@ -38,12 +38,6 @@ public class Eagle extends Sprite
 		this.speed = 1;
 	}
 	
-//	public void update() {
-//		speed += speed;
-//		
-//		if(speed >= 8) speed = 8;
-//	}
-	
 	public void update() {
 		speed += 2;
 		
@@ -70,18 +64,7 @@ public class Eagle extends Sprite
 		if(d < 1) overlapsBird(b);
 		
 	}
-	
-//	public void evade(Bird e)
-//	{
-//		turnAwayFrom(e);
-//		
-//		double dx = e.x - x;
-//		double dy = e.y - y;
-//		
-//		double d2 = dx*dx + dy*dy;
-//		
-//		if (d2 < 40000)    moveForwardBy(4);
-//	}
+
 	
 	public void turnToward(Bird b)
 	{
@@ -227,20 +210,7 @@ public class Eagle extends Sprite
 	}
 	
 	public void render(Graphics g)
-	{
-		
-//		g.setColor(Color.yellow);
-//		g.fillOval((int)(x-r), (int)(y-r), 2*r, 2*r);
-//		g.setColor(Color.black);
-//		g.drawOval((int)(x-r), (int)(y-r), 2*r, 2*r);
-		
-//		g.drawImage(eagleImage, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
-		
-//		g.drawImage(eagleImage, (int)x, (int)y, 100, 100, null);
-		
-//		double cosA = Lookup.cos[angle];
-//		double sinA = Lookup.sin[angle];
-		
+	{		
 		if(flappingUp) {
 			g.drawImage(eagleImageUp,(int)x,(int)y,50,50,null);
 //			g.drawImage(eagleImageUp,(int)(x + r * cosA),(int)(y + r * sinA),50,50,null);

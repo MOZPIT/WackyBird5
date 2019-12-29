@@ -37,7 +37,6 @@ public class Bird extends Rectangle{
 			flapUp = Sprite.getSprite("images/flapUpBird.png");
 			flapDown = Sprite.getSprite("images/flapDownBird.png");
 			flapDead = Sprite.getSprite("images/flapDownBird.png");
-			//flapDead = Sprite.getSprite("images/flapDeadBird.png");
 			
 		}catch(IOException ex){
 			System.err.println(ex.getMessage());

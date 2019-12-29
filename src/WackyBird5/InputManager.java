@@ -2,11 +2,6 @@ package WackyBird5;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
-/**
-    The InputManager manages input of key and mouse events.
-    Events are mapped to GameActions.
-*/
 public class InputManager implements KeyListener
 {
 	public static final int UP = KeyEvent.VK_UP;

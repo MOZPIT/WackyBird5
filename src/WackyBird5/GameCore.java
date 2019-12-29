@@ -163,9 +163,7 @@ public class GameCore extends Canvas implements Runnable {
 				eagle.update();
 			}
 		}
-//		else if(state == STATE.MENU){
-//			//do somethin
-//		}
+
 
 	}
 
@@ -211,6 +209,10 @@ public class GameCore extends Canvas implements Runnable {
 	public static void newGame(){
 		score = 0;
 		backdrop = new BackDrop(1);
+<<<<<<< HEAD
+=======
+		pipe.changePipeSpeed(6);
+>>>>>>> a89895ae565c7d595538f41e4d8c241787586612
 		pipe = new Pipe(60);
 		bird = new Bird(20,GameCore.HEIGHT/2,pipe.pipes);
 		playerScore = new Score();
