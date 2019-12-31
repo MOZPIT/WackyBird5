@@ -20,7 +20,7 @@ public class Pipe extends Sprite{
 //	public ArrayList<Image> newPipes;
 	
 	private Random rand = new Random(300);
-	public static int speed = 2;
+	public static int speed = 1;
 	
 
 	public Pipe(int time) {

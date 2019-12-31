@@ -26,6 +26,7 @@ public class GameCore extends Canvas implements Runnable {
 	public static enum STATE{
 		GAME,
 		OVER,
+		WIN,
 		MENU
 	};
 	public static STATE state = STATE.MENU;
@@ -41,7 +42,7 @@ public class GameCore extends Canvas implements Runnable {
 	public static BackDrop backdrop;
 	public static Score playerScore;
 	public static Floor gameFloor;
-	public static Trees trees;
+//	public static Trees trees;
 	public static Snow snowFlake;
 	public static Eagle eagle;
 	
@@ -132,16 +133,18 @@ public class GameCore extends Canvas implements Runnable {
 				System.out.println("KeyTouched: " + keyTouched);
 			}
 			
-			if(score < 1) {
+			if(score < 4) {
 				backdrop = new BackDrop(1);
 				pipe.changePipeSpeed(6);
-			}else if(score < 3){
+			}else if(score > 4 && score < 10){
 				backdrop = new BackDrop(2);
-				pipe.changePipeSpeed(12);
-			}else{
+				pipe.changePipeSpeed(9);
+			}else if(score > 11 && score < 20){
 //				eagle.chase(bird);
 				backdrop = new BackDrop(3);
-				pipe.changePipeSpeed(18);
+				pipe.changePipeSpeed(12);
+			}else if(score == 20) {
+				state = STATE.WIN;
 			}
 			
 		}
@@ -155,10 +158,10 @@ public class GameCore extends Canvas implements Runnable {
 			backdrop.update();
 			pipe.update();
 			bird.update();
-            trees.update();
+//            trees.update();
 			snowFlake.update();
 			
-			if(score > 6) {
+			if(score > 10) {
 				eagle.chase(bird);
 				eagle.update();
 			}
@@ -183,11 +186,10 @@ public class GameCore extends Canvas implements Runnable {
 			bird.render(g);
 			playerScore.render(g);
 			gameFloor.render(g);
-			trees.render(g);
+//			trees.render(g);
 						
-			if(score > 2 && score < 6) {
+			if(score > 10) {
 				snowFlake.render(g);
-			}else if(score > 6) {
 				eagle.render(g);
 			}
 		}else{
@@ -207,17 +209,16 @@ public class GameCore extends Canvas implements Runnable {
 	public void paint(Graphics g) {}
 
 	public static void newGame(){
-		score = 0;
 		backdrop = new BackDrop(1);
-<<<<<<< HEAD
-=======
-		pipe.changePipeSpeed(6);
->>>>>>> a89895ae565c7d595538f41e4d8c241787586612
 		pipe = new Pipe(60);
-		bird = new Bird(20,GameCore.HEIGHT/2,pipe.pipes);
+		bird = new Bird(20,GameCore.HEIGHT/3,pipe.pipes);
+		bird.setBirdSpeed(1);
+		Camera.setLocation(100, 0);
+		score = 0;
+//		pipe.changePipeSpeed(6);
 		playerScore = new Score();
 		gameFloor = new Floor();
-		trees = new Trees();
+//		trees = new Trees();
 		snowFlake = new Snow(6, 2, 6);
 		try {
 			eagle = new Eagle(50, 10, 20, 0);

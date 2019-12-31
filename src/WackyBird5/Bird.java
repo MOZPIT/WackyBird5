@@ -11,7 +11,7 @@ public class Bird extends Rectangle{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private float speed = 2;
+	private float speed = 1;
 	public static boolean keyPressed = false;
 	public boolean gameOver = false, restart = false, restartGame = false;
 	public boolean flappingUp = false, flappingDown = false, birdDropping = false;
@@ -36,7 +36,7 @@ public class Bird extends Rectangle{
 		try {
 			flapUp = Sprite.getSprite("images/flapUpBird.png");
 			flapDown = Sprite.getSprite("images/flapDownBird.png");
-			flapDead = Sprite.getSprite("images/flapDownBird.png");
+			flapDead = Sprite.getSprite("images/flapDeadBird.png");
 			
 		}catch(IOException ex){
 			System.err.println(ex.getMessage());
@@ -48,7 +48,7 @@ public class Bird extends Rectangle{
 	public void update() {
 		
 		if(keyPressed) {
-			speed = 3;
+			speed = 2;
 			y -= (speed);
 			flappingUp = true;
 			flappingDown = false;
@@ -59,26 +59,39 @@ public class Bird extends Rectangle{
 			birdDropping = true;
 		}
 		 
-		if(birdDropping) {
-			speed += gravity;
-			if(speed > 8) speed = 8;
-		}
-		
 		//check for collision
 		for(int i = 0; i < pipes.size(); i++) {
 			if(this.intersects(pipes.get(i))){
-					gameOver = true;
-					GameCore.state = GameCore.STATE.OVER;
+					birdDropping = true;
 					Sound.birdDownMusic();
+					objCollision = true;
+					try {
+						Thread.sleep(2700);
+					}
+					catch (InterruptedException ex) {}
+					GameCore.state = GameCore.STATE.OVER;
 					break;
 			}
-		}                   
+		}
+		
+		if(birdDropping) {
+			speed += gravity;
+			if(speed > 3) speed = 1;
+		}
+		
+//		else {
+//			speed -= gravity;
+//		}
 		
 		if(y >= GameCore.HEIGHT-30) {
 			gameOver = true;
 			y = GameCore.HEIGHT - 20;
+			speed = 0;
+			objCollision = true;
 		}
 		
+		System.out.println("Bird speed: " + speed);
+		System.out.println("Score: " + GameCore.score);
 		birdsXVal = x;
 	}
 	
@@ -89,18 +102,14 @@ public class Bird extends Rectangle{
 			g.drawImage(flapUp,x,y,width,height,null);
 		}else if(flappingDown && !gameOver) {
 		    g.drawImage(flapDown,x,y,width,height,null);
-		}
-	
-		if(gameOver) {
+		}else {
 			System.out.println("Bird collision: " + objCollision);
 			g.drawImage(flapDead,x,y,width,height,null);
-			
-			try {
-				Thread.sleep(900);
-			}
-			catch (InterruptedException ex) {}
-				
-			GameCore.state = GameCore.STATE.OVER;
+//			GameCore.state = GameCore.STATE.OVER;
+//			try {
+//				Thread.sleep(900);
+//			}
+//			catch (InterruptedException ex) {}
 		}	
 	}
 	
@@ -118,6 +127,10 @@ public class Bird extends Rectangle{
 	
 	public static Image getBird() throws IOException {
 		return Sprite.getSprite("images/flapDownBird.png");
+	}
+	
+	public void setBirdSpeed(float i) {
+		speed = i;
 	}
 
 }
